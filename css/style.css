@@ -601,11 +601,9 @@ img { max-width: 100%; height: auto; display: block; }
 .stat-item {
     text-align: center;
     padding: 28px 16px;
-    background: #000000;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     transition: transform var(--transition), box-shadow var(--transition);
-    border: 1px solid #000000;
     color: #ffffff;
 }
 
@@ -714,8 +712,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .adv-img-placeholder {
     width: 100%;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     display: block;
     background: #1a2744;
 }
