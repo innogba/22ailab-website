@@ -644,7 +644,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .advantage-card {
-    padding: 36px 28px;
+    padding: 0;
     background: var(--c-white);
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
@@ -704,6 +704,39 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 14px;
     line-height: 1.8;
     color: var(--c-text-light);
+}
+
+/* Advantage image card (形象图 + 标题压条) */
+.adv-image-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.adv-img-placeholder {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+    background: #1a2744;
+}
+
+.adv-image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 10px 16px;
+    box-sizing: border-box;
+}
+
+.adv-image-caption .adv-title {
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.advantage-card .adv-desc {
+    padding: 16px 20px;
 }
 
 /* CTA Card */
