@@ -1310,6 +1310,105 @@ img { max-width: 100%; height: auto; display: block; }
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* ===== 案例多图轮播 ===== */
+.case-carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #1c2947;
+}
+
+.case-carousel .carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.case-carousel .carousel-slide {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+
+.case-carousel .carousel-slide:first-child {
+    opacity: 1;
+}
+
+.case-carousel .carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+    font-size: 22px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: background var(--transition);
+    padding-bottom: 3px;
+    box-sizing: border-box;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-dots {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+    z-index: 5;
+}
+
+.carousel-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    padding: 0;
+    border: none;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-dot.active {
+    background: #c9a55c;
+    transform: scale(1.15);
+}
+
 .case-caption {
     position: absolute;
     left: 0;

@@ -246,6 +246,70 @@
         }, 4000);
     }
 
+    /* ===== Case Image Carousel (案例多图轮播) ===== */
+    document.querySelectorAll('.case-carousel').forEach(function (carousel) {
+        var slides = Array.prototype.slice.call(
+            carousel.querySelectorAll('.carousel-slide')
+        );
+        if (slides.length === 0) return;
+
+        var prevBtn = carousel.querySelector('.carousel-prev');
+        var nextBtn = carousel.querySelector('.carousel-next');
+        var dotsWrap = carousel.querySelector('.carousel-dots');
+        var index = 0;
+
+        function goTo(i) {
+            slides[index].classList.remove('active');
+            if (dotsWrap.children[index]) {
+                dotsWrap.children[index].classList.remove('active');
+            }
+            index = (i + slides.length) % slides.length;
+            slides[index].classList.add('active');
+            if (dotsWrap.children[index]) {
+                dotsWrap.children[index].classList.add('active');
+            }
+        }
+
+        // Build dots
+        slides.forEach(function (_, i) {
+            var dot = document.createElement('span');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', function () {
+                goTo(i);
+            });
+            dotsWrap.appendChild(dot);
+        });
+
+        slides[0].classList.add('active');
+
+        prevBtn.addEventListener('click', function () {
+            goTo(index - 1);
+        });
+
+        nextBtn.addEventListener('click', function () {
+            goTo(index + 1);
+        });
+
+        // Touch swipe support
+        var touchStartX = null;
+        carousel.addEventListener('touchstart', function (e) {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', function (e) {
+            if (touchStartX === null) return;
+            var dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 40) {
+                if (dx < 0) {
+                    goTo(index + 1); // swipe left -> next
+                } else {
+                    goTo(index - 1); // swipe right -> prev
+                }
+            }
+            touchStartX = null;
+        }, { passive: true });
+    });
+
     /* ===== Back to Top ===== */
     backToTop.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
