@@ -878,9 +878,11 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== Contact Section ===== */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr;
     gap: 50px;
     align-items: start;
+    max-width: 760px;
+    margin: 0 auto;
 }
 
 .contact-info {
@@ -1010,7 +1012,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer-inner {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1.2fr;
+    grid-template-columns: 1.5fr 1.2fr;
     gap: 40px;
     padding-bottom: 40px;
 }
