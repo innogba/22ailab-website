@@ -1,0 +1,6 @@
+# internal files, not part of the website
+.workbuddy/
+overview.md
+部署上线指南.md
+.DS_Store
+node_modules/
