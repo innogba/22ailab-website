@@ -2,5 +2,6 @@
 .workbuddy/
 overview.md
 部署上线指南.md
+outputs/
 .DS_Store
 node_modules/
