@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow:
 
-Sitemap: https://22ailab.com/sitemap.xml
+Sitemap: https://www.22ailab.com/sitemap.xml
